@@ -19,3 +19,23 @@ let pet: Animal = "shiba";
 
 console.log(greet);
 console.log(pet);
+
+//オブジェクト型
+const person = {
+  name: "alice",
+  age: 30,
+};
+//オブジェクトに型エイリアスの設定
+type Book = {
+  title: string;
+  author: string;
+  publishedIn: number;
+};
+const book: Book = {
+  title: "cocoro",
+  author: "夏目漱石",
+  publishedIn: 1914,
+};
+//オブジェクトのプロパティに対して型エイリアスを設定した場合、
+//プロパティが一つでもかけているとエラーになるので注意
+console.log(book);

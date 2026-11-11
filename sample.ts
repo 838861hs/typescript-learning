@@ -39,3 +39,16 @@ const book: Book = {
 //オブジェクトのプロパティに対して型エイリアスを設定した場合、
 //プロパティが一つでもかけているとエラーになるので注意
 console.log(book);
+
+//arry型
+//これも他と同じくconstで変数宣言すると型推論が動く
+
+const num = [1, 2, 3, 4];
+const personName = ["Alice", "bob", "Charlie"];
+//複数の型も入れられる
+const nums = [1, 2, 3, 4, 5, "six"];
+
+//Tuple型
+//配列の内容それぞれに型を決める
+const TuplePerson: [string, number] = ["alice", 30];
+console.log(TuplePerson);

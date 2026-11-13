@@ -8,7 +8,7 @@ let greet: "Hello" = "Hello";
 //ユニオン型　複数の型を設定できる
 let id: number | string;
 id = "test";
-console.log(id);
+//console.log(id);
 
 //型エイリアスの宣言
 //組み合わせて６個のユニオン型のように使える
@@ -17,8 +17,8 @@ type cat = "mike" | "dora" | "persian";
 type dog = "shiba" | "poodle" | "pug";
 let pet: Animal = "shiba";
 
-console.log(greet);
-console.log(pet);
+//console.log(greet);
+//console.log(pet);
 
 //オブジェクト型
 const person = {
@@ -38,7 +38,7 @@ const book: Book = {
 };
 //オブジェクトのプロパティに対して型エイリアスを設定した場合、
 //プロパティが一つでもかけているとエラーになるので注意
-console.log(book);
+//console.log(book);
 
 //arry型
 //これも他と同じくconstで変数宣言すると型推論が動く
@@ -51,4 +51,40 @@ const nums = [1, 2, 3, 4, 5, "six"];
 //Tuple型
 //配列の内容それぞれに型を決める
 const TuplePerson: [string, number] = ["alice", 30];
-console.log(TuplePerson);
+//console.log(TuplePerson);
+
+//インターセクション型
+//複数の型ｗ設定しaかつbのような表現をする
+//合わせたプロパティの型設定はすべてそろって使わないとエラーになる
+type Engine = {
+  enginType: string;
+  volume: number;
+};
+
+type Wheels = {
+  wheelCount: number;
+};
+
+type Car = Engine & Wheels;
+
+const myCar: Car = {
+  enginType: "v8",
+  volume: 3000,
+  wheelCount: 4,
+};
+
+console.log(myCar.wheelCount);
+
+//any型；型チェックを無効にする。原則避ける。
+//unknown型：型が不明。型を確認してから使う
+//
+//any型
+let a: any = 123;
+//a.toUpperCase(); //型エラーなし（実行時エラー）
+
+//unknown型
+let b: unknown = "hello";
+
+if (typeof b === "string") {
+  console.log(b.toUpperCase());
+}

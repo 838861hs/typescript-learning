@@ -87,8 +87,18 @@ let b: unknown = "hello";
 
 if (typeof b === "string") {
   console.log(b.toUpperCase());
-
+} //関数
+
+addNumbers(10, 20);
 //undefind型
 //値が未設定で入ってくることを表す値　ユニオンで書くことが多い
 //
 //値がないと明治するために自分で入れる値
+
+//関数
+function addNumbers(a: number, b: number): number {
+  return a + b;
+}
+
+const result: number = addNumbers(10, 20);
+console.log(result);
